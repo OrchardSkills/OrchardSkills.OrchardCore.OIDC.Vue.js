@@ -2,6 +2,12 @@
 
 An example of how to use vuex-oidc: https://github.com/perarnborg/vuex-oidc
 
+# Install vue.js
+
+```
+npm i -g @vue/cli
+```
+
 ## Project setup
 ```
 npm install
