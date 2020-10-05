@@ -76,20 +76,20 @@ export default {
         // eslint-disable-next-line quote-props
         Authorization: 'Bearer' + this.oidcAccessToken
       }
-      const url = urlApiGraphql
-      const body = `
-         query {
-            subscriber {
-              createdUtc
-              displayText
-              email
-              firstName
-              lastName
-              modifiedUtc
-              publishedUtc
-            }
-          }`
-      const response = await axios.post(url, body, { headers: headers })
+      const url = urlApiGraphql + '?query={subscriber {createdUtc, displayText email firstName lastName modifiedUtc publishedUtc contentItemId }}'
+      // const body = `
+      //    query {
+      //       subscriber {
+      //         createdUtc
+      //         displayText
+      //         email
+      //         firstName
+      //         lastName
+      //         modifiedUtc
+      //         publishedUtc
+      //       }
+      //     }`
+      const response = await axios.post(url, headers)
       this.Subscribers = response.data.subscriber
       console.log('data', this.oidcAccessToken)
     }
