@@ -76,7 +76,9 @@ export default {
         // eslint-disable-next-line quote-props
         Authorization: 'Bearer' + this.oidcAccessToken
       }
-      const url = urlApiGraphql + '?query={subscriber {createdUtc, displayText email firstName lastName modifiedUtc publishedUtc contentItemId }}'
+      const url =
+        urlApiGraphql +
+        '?query={subscriber {createdUtc, displayText email firstName lastName modifiedUtc publishedUtc contentItemId }}'
       // const body = `
       //    query {
       //       subscriber {
@@ -95,7 +97,9 @@ export default {
     }
   },
   mounted () {
-    this.getSubscribers()
+    if (this.oidcAccessToken) {
+      this.getSubscribers()
+    }
   }
 }
 </script>
