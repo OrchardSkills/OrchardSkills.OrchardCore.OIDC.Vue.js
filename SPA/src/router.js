@@ -1,11 +1,12 @@
 
 import Home from './views/Home.vue'
 import OidcCallback from './views/OidcCallback.vue'
-import OidcPopupCallback from './views/OidcPopupCallback.vue'
+import signOutOidcCallback from './views/OidcSignOutCallBack.vue'
 import OidcCallbackError from './views/OidcCallbackError'
 import { vuexOidcCreateRouterMiddleware } from 'vuex-oidc'
 import store from '@/store'
 import { createRouter, createWebHistory } from 'vue-router'
+import Subscribers from './views/Subscribers.vue'
 
 const routes = [
   {
@@ -27,14 +28,22 @@ const routes = [
     component: OidcCallback
   },
   {
-    path: '/oidc-popup-callback', // Needs to match popupRedirectUri in you oidcSettings
-    name: 'oidcPopupCallback',
-    component: OidcPopupCallback
+    path: '/signout-callback', // Needs to match popupRedirectUri in you oidcSettings
+    name: 'signout-callback',
+    component: signOutOidcCallback
   },
   {
     path: '/oidc-callback-error', // Needs to match redirect_uri in you oidcSettings
     name: 'signin-callbackError',
     component: OidcCallbackError,
+    meta: {
+      isPublic: true
+    }
+  },
+  {
+    path: '/subscribers', // Needs to match redirect_uri in you oidcSettings
+    name: 'subscribers',
+    component: Subscribers,
     meta: {
       isPublic: true
     }

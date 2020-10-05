@@ -6,14 +6,16 @@
     >
       <router-link to="/">Home</router-link> |
       <router-link to="/protected">Protected</router-link> |
+      <router-link to="/subscribers">Subscribers</router-link> |
       <a v-if="oidcIsAuthenticated" href @click.prevent="signOut">Sign out</a>
-      <a v-else href @click.prevent="authenticateOidcPopup">Sign in</a>
+      <a v-else href @click.prevent="authenticateOidc">Sign in</a>
     </div>
     <router-view/>
   </div>
 </template>
 
 <script>
+
 import { mapGetters, mapActions } from 'vuex'
 
 export default {
@@ -28,8 +30,9 @@ export default {
   },
   methods: {
     ...mapActions('oidcStore', [
-      'authenticateOidcPopup',
-      'removeOidcUser'
+      'authenticateOidc',
+      'removeOidcUser',
+      'signOutOidc'
     ]),
     userLoaded: function (e) {
       console.log('I am listening to the user loaded event in vuex-oidc', e.detail)
@@ -42,7 +45,7 @@ export default {
     },
     signOut: function () {
       this.removeOidcUser().then(() => {
-        this.$router.push('/')
+        this.signOutOidc()
       })
     }
   },

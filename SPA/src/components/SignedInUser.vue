@@ -9,6 +9,9 @@
     <p>
       Id token
     </p>
+    <p >
+     {{oidcAccessToken}}
+    </p>
     <p>
       expires {{ new Date(oidcIdTokenExp).toISOString() }}
     </p>
@@ -35,7 +38,8 @@ export default {
       'oidcAuthenticationIsChecked',
       'oidcUser',
       'oidcIdToken',
-      'oidcIdTokenExp'
+      'oidcIdTokenExp',
+      'oidcAccessToken'
     ]),
     userDisplay: function () {
       return jsonMarkup(this.oidcUser)

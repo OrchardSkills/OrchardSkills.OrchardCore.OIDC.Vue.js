@@ -1,8 +1,5 @@
 <template>
-  <div
-    v-if="oidcIsAuthenticated"
-    class="protected"
-  >
+  <div v-if="oidcIsAuthenticated" class="protected">
     <h1>This route requires authentication</h1>
     <SignedInUser />
   </div>
@@ -17,10 +14,7 @@ export default {
   name: 'Protected',
   components: { SignedInUser },
   computed: {
-    ...mapGetters('oidcStore', [
-      'oidcIsAuthenticated',
-      'oidcUser'
-    ]),
+    ...mapGetters('oidcStore', ['oidcIsAuthenticated', 'oidcUser']),
     userDisplay: function () {
       return jsonMarkup(this.oidcUser)
     }

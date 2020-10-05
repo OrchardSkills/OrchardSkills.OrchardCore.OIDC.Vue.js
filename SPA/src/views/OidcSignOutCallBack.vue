@@ -7,17 +7,16 @@
 import { mapActions } from 'vuex'
 
 export default {
-  name: 'OidcPopupCallback',
+  name: 'signOutOidcCallback',
   methods: {
     ...mapActions('oidcStore', [
-      'oidcSignInPopupCallback'
+      'signOutOidcCallback'
     ])
   },
   created () {
-    this.oidcSignInPopupCallback()
-      .catch((err) => {
-        console.error(err) // Handle errors any way you want
-      })
+    this.signOutOidcCallback().then(() => {
+      this.$router.push('/')
+    })
   }
 }
 </script>
