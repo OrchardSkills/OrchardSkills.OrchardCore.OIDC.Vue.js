@@ -1,11 +1,12 @@
 const fs = require('fs')
 module.exports = {
   devServer: {
-    hot: true,
+    host: 'localhost',
+    disableHostCheck: true,
     https: true,
     key: fs.readFileSync('./ssl/server.key'),
     cert: fs.readFileSync('./ssl/server.crt'),
-    port: 5002
+    public: 'https://localhost:5002'
   },
   pages: {
     app: {

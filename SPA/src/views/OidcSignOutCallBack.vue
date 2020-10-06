@@ -1,22 +1,20 @@
 <template>
-  <div>
-  </div>
+  <div></div>
 </template>
 
 <script>
 import { mapActions } from 'vuex'
 
 export default {
-  name: 'signOutOidcCallback',
+  name: 'OidcSignOutCallback',
   methods: {
-    ...mapActions('oidcStore', [
-      'signOutOidcCallback'
-    ])
+    ...mapActions('oidcStore', ['signOutOidcCallback'])
   },
   created () {
-    this.signOutOidcCallback().then(() => {
-      this.$router.push('/')
-    })
+    this.signOutOidcCallback()
+      .then(() => {
+        this.$router.push('/')
+      })
   }
 }
 </script>

@@ -44,9 +44,7 @@ export default {
       console.log('I am listening to the automaticSilentRenewError event in vuex-oidc', e.detail)
     },
     signOut: function () {
-      this.removeOidcUser().then(() => {
-        this.signOutOidc()
-      })
+      this.removeOidcUser()
     }
   },
   mounted () {

@@ -1,7 +1,7 @@
 
 import Home from './views/Home.vue'
 import OidcCallback from './views/OidcCallback.vue'
-import signOutOidcCallback from './views/OidcSignOutCallBack.vue'
+import OidcSignOutCallback from './views/OidcSignOutCallBack.vue'
 import OidcCallbackError from './views/OidcCallbackError'
 import { vuexOidcCreateRouterMiddleware } from 'vuex-oidc'
 import store from '@/store'
@@ -29,8 +29,8 @@ const routes = [
   },
   {
     path: '/signout-callback', // Needs to match popupRedirectUri in you oidcSettings
-    name: 'signout-callback',
-    component: signOutOidcCallback
+    name: 'OidcSignOutCallback',
+    component: OidcSignOutCallback
   },
   {
     path: '/oidc-callback-error', // Needs to match redirect_uri in you oidcSettings
