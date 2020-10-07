@@ -36,7 +36,7 @@ npm install oidc-client --save
 npm install axios --save
 ```
 
-# Install vue-fontawesome
+## Install vue-fontawesome
 
 ```
 npm install @fortawesome/vue-fontawesome@3.0.0-1 --save 
@@ -48,7 +48,7 @@ npm install @fortawesome/vue-fontawesome@3.0.0-1 --save
 npm install vue-toastification@2.0.0-beta.5 --save 
 ```
 
-### Modify the main.js file
+## Modify the main.js file
 
 ```
 import { createApp } from 'vue'
