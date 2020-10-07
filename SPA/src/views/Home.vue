@@ -233,6 +233,7 @@
 <script>
 import axios from 'axios'
 import { environment } from '../config/config'
+import { useToast } from 'vue-toastification'
 const urlApiContent = environment.stsAuthority + 'api/content/'
 
 const urlApiGraphql = environment.stsAuthority + 'api/graphql'
@@ -241,6 +242,7 @@ export default {
   name: 'Home',
   data () {
     return {
+      toastNotification: useToast(),
       authUser: Boolean,
       oidcAccessToken: '',
       Subscribers: [],
@@ -326,8 +328,10 @@ export default {
       }
       try {
         await axios.post(url, body, { headers: headers })
+        this.toastNotification.success('You successfully updated subscriber')
       } catch (err) {
         console.log('error', err.message)
+        this.toastNotification.error(err.message)
       }
       this.closeEditSubscriber()
     },
@@ -341,8 +345,10 @@ export default {
       try {
         await axios.delete(url, { headers: headers })
         await this.getSubscribers()
+        this.toastNotification.success('You successfully deleted subscriber')
       } catch (err) {
         console.log('error', err.message)
+        this.toastNotification.error(err.message)
       }
     },
     async addSubscriber (subscriber) {
@@ -383,8 +389,10 @@ export default {
       try {
         await axios.post(url, body, { headers: headers })
         await this.getSubscribers()
+        this.toastNotification.success('You successfully add new subscriber')
       } catch (err) {
         console.log('error', err.message)
+        this.toastNotification.error(err.message)
       }
     }
   },
