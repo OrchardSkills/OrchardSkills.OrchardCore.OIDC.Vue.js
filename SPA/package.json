@@ -9,6 +9,9 @@
     "uselocaldep": "cp ../vuex-oidc/dist/vuex-oidc.esm.js ./node_modules/vuex-oidc/dist/vuex-oidc.esm.js"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.32",
+    "@fortawesome/free-solid-svg-icons": "^5.15.1",
+    "@fortawesome/vue-fontawesome": "^3.0.0-1",
     "axios": "^0.20.0",
     "babel-eslint": "^10.1.0",
     "babel-polyfill": "^6.26.0",

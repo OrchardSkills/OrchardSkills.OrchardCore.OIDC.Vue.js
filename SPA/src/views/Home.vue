@@ -9,7 +9,7 @@
           data-toggle="modal"
           data-target="#staticBackdrop"
         >
-          Add
+          <font-awesome-icon icon="plus" />
         </button>
       </div>
       <hr />
