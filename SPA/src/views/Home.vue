@@ -233,8 +233,6 @@
 <script>
 import axios from 'axios'
 import { environment } from '../config/config'
-import Oidc from '../config/authService'
-const oidc = new Oidc()
 const urlApiContent = environment.stsAuthority + 'api/content/'
 
 const urlApiGraphql = environment.stsAuthority + 'api/graphql'
@@ -391,8 +389,8 @@ export default {
     }
   },
   async mounted () {
-    const token = await oidc.getAccessToken()
-    this.authUser = await oidc.isLoggedIn()
+    const token = await this.$oidc.getAccessToken()
+    // this.authUser = await this.$oidc.isLoggedIn()
     if (token) {
       this.oidcAccessToken = token
       this.getSubscribers()

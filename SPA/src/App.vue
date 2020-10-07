@@ -64,11 +64,15 @@ export default {
       this.oidc.login()
     },
     signOut: function () {
-      this.$oidc.logOut()
+      this.oidc.logout()
     }
   },
-  async mounted () {
-    this.authUser = await this.oidc.isLoggedIn()
+  mounted () {
+    setTimeout(() => {
+      this.oidc.isLoggedIn().then((auth) => {
+        this.authUser = auth
+      })
+    }, 500)
   },
   unmounted () {
   }
