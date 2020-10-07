@@ -4,20 +4,15 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
-
+import Oidc from '../config/authService'
+const oidc = new Oidc()
 export default {
   name: 'OidcCallback',
-  methods: {
-    ...mapActions('oidcStore', [
-      'oidcSignInCallback'
-    ])
-  },
+
   created () {
-    this.oidcSignInCallback()
+    oidc.completeLogin()
       .then((redirectPath) => {
-        console.log('router', redirectPath)
-        this.$router.push(redirectPath)
+        this.$router.push('/')
       })
       .catch((err) => {
         console.error(err)

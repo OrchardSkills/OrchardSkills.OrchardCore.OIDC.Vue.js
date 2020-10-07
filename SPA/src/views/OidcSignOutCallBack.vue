@@ -3,15 +3,13 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
 
+import Oidc from '../config/authService'
+const oidc = new Oidc()
 export default {
   name: 'OidcSignOutCallback',
-  methods: {
-    ...mapActions('oidcStore', ['signOutOidcCallback'])
-  },
   created () {
-    this.signOutOidcCallback()
+    oidc.completeLogout()
       .then(() => {
         this.$router.push('/')
       })

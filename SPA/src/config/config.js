@@ -1,3 +1,6 @@
+/* eslint-disable */
+
+
 export const environment = {
   clientRoot: 'https://localhost:4200/',
 

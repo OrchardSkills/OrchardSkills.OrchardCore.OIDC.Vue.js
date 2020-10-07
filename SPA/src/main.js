@@ -1,7 +1,9 @@
 import { createApp } from 'vue'
 import router from './router'
-import store from './store'
 import App from './App.vue'
 import './assets/css/mdb.min.css'
 import './assets/js/mdb.min'
-createApp(App).use(store).use(router).mount('#app')
+// import Oidc from './config/authService'
+const app = createApp(App)
+app.use(router)
+app.mount('#app')
