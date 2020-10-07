@@ -45,34 +45,29 @@
 </template>
 
 <script>
-import Oidc from './config/authService'
+
 export default {
   name: 'App',
   computed: {
     hasAccess: function () {
-      return this.$route.meta.isPublic
+      return this.$route.meta.isPublic || this.authUser
     }
   },
   data () {
     return {
-      oidc: new Oidc(),
       authUser: Boolean
     }
   },
   methods: {
     signIn () {
-      this.oidc.login()
+      this.$oidc.login()
     },
     signOut: function () {
-      this.oidc.logout()
+      this.$oidc.logout()
     }
   },
-  mounted () {
-    setTimeout(() => {
-      this.oidc.isLoggedIn().then((auth) => {
-        this.authUser = auth
-      })
-    }, 500)
+  async updated () {
+    this.authUser = await this.$oidc.isLoggedIn()
   },
   unmounted () {
   }
