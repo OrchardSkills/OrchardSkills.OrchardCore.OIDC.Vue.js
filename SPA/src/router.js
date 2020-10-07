@@ -1,7 +1,7 @@
 
-import Home from './views/Home.vue'
-import OidcSigInCallBack from './views/OidcSignInCallBack.vue'
-import OidcSignOutCallBack from './views/OidcSignOutCallBack.vue'
+import Home from './components/Home.vue'
+import OidcSigInCallBack from './components/OidcSignInCallBack.vue'
+import OidcSignOutCallBack from './components/OidcSignOutCallBack.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
