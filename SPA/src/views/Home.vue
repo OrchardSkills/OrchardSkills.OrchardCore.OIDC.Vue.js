@@ -144,7 +144,7 @@
         </table>
       </div>
     </div>
-    <div v-else >
+    <div v-else class="text-center">
       Please login to enable CRUD operations.
     </div>
     <!-- Modal -->
@@ -390,7 +390,7 @@ export default {
   },
   async mounted () {
     const token = await this.$oidc.getAccessToken()
-    // this.authUser = await this.$oidc.isLoggedIn()
+    this.authUser = await this.$oidc.isLoggedIn()
     if (token) {
       this.oidcAccessToken = token
       this.getSubscribers()

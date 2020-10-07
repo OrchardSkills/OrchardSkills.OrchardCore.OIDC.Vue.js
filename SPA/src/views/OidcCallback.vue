@@ -4,13 +4,12 @@
 </template>
 
 <script>
-import Oidc from '../config/authService'
-const oidc = new Oidc()
+
 export default {
   name: 'OidcCallback',
 
   created () {
-    oidc.completeLogin()
+    this.$oidc.completeLogin()
       .then((redirectPath) => {
         this.$router.push('/')
       })
