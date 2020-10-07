@@ -31,7 +31,7 @@ oidcClient.events.addAccessTokenExpiring(function () {
 
 oidcClient.events.addAccessTokenExpired(function () {
   console.log('AccessToken Expired：', arguments);  
-  alert('Session expired. Going out!');
+  //alert('Session expired. Going out!');
   oidcClient.signoutRedirect().then(function (resp) {
     console.log('signed out', resp);
   }).catch(function (err) {
@@ -44,7 +44,7 @@ oidcClient.events.addSilentRenewError(function () {
 });
 
 oidcClient.events.addUserSignedOut(function () {
-  alert('Going out!');
+  //alert('Going out!');
   console.log('UserSignedOut：', arguments);  
   oidcClient.signoutRedirect().then(function (resp) {
     console.log('signed out', resp);
@@ -89,18 +89,6 @@ export default class SecurityService {
         return !!user && !user.expired ? user.access_token : null
     
       }
-    
-      // loadSecurityContext() {
-      //   this._httpClient
-      //     .get(`${environment.apiRoot}Projects/AuthContext`)
-      //     .subscribe(
-      //       context => {
-      //         this.authContext = new AuthContext();
-      //         this.authContext.claims = context.claims;
-      //         this.authContext.userProfile = context.userProfile;
-      //       },
-      //       error => console.error(error)
-      //     );
-      // }
+
 }
 
