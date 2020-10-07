@@ -68,8 +68,6 @@ export default {
   },
   async updated () {
     this.authUser = await this.$oidc.isLoggedIn()
-  },
-  unmounted () {
   }
 }
 </script>
