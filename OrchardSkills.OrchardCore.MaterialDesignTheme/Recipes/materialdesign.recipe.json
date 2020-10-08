@@ -3134,20 +3134,6 @@
       "UserinfoEndpointPath": "https://localhost:44342/connect/userinfo"
     },
     {
-      "DisplayName": "Client Credentials Flow",
-      "name": "OpenIdApplication",
-      "ClientId": "credentials_client_id",
-      "ClientSecret": "credentials_C1ient$ecret",
-      "AllowClientCredentialsFlow": true,
-      "RoleEntries": [
-        {
-          "Name": "API",
-          "Selected": true
-        }
-      ],
-      "Type": "confidential"
-    },
-    {
       "DisplayName": "Authorization Code Flow",
       "name": "OpenIdApplication",
       "ClientId": "code_flow_client_id",
