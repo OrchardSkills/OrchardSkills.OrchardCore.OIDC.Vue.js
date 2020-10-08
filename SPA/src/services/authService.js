@@ -5,9 +5,6 @@ import {
   clientRoot, 
   stsAuthority, 
   clientId, 
-  credentialsClientId,
-  credentialsClientSecret,
-  credentialsClientGrantType,
   scope,
   responseType
 } from '../config/config'
