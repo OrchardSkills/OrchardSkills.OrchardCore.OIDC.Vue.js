@@ -88,10 +88,8 @@ export default class SecurityService {
       }
     
       async getAccessToken() {
-        const user = await oidcClient.getUser() // Returns promise to load the User object for the currently authenticated user.
-          ;
+        const user = await oidcClient.getUser(); // Returns promise to load the User object for the currently authenticated user.
         return !!user && !user.expired ? user.access_token : null
-    
       }
 
 }
