@@ -69,8 +69,8 @@
                   <input
                     type="text"
                     class="form-control"
-                    placeholder="First Name"
-                    aria-label="First Name"
+                    placeholder="Last Name"
+                    aria-label="Last Name"
                     name="lastName"
                     v-model="subscriber.lastName"
                   />
