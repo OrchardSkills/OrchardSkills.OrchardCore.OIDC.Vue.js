@@ -1,18 +1,25 @@
 /* eslint-disable */
 import Oidc from 'oidc-client';
 import 'babel-polyfill';
+import {
+  clientRoot, 
+  stsAuthority, 
+  clientId, 
+  credentialsClientId,
+  credentialsClientSecret,
+  credentialsClientGrantType,
+  scope,
+  responseType
+} from '../config/config'
 
 var oidcClient = new Oidc.UserManager({
   userStore: new Oidc.WebStorageStateStore(),  
-  authority: 'https://localhost:44342/',
-  client_id: 'code_flow_client_id',
-  redirect_uri: 'https://localhost:5002/signin-callback',
-  response_type: 'code',
-  scope: 'openid profile api',
-  post_logout_redirect_uri: 'https://localhost:5002/signout-callback',
-  silent_redirect_uri: window.location.origin + '/static/silent-renew.html',
-  accessTokenExpiringNotificationTime: 10,
-  automaticSilentRenew: true,
+  authority: stsAuthority,
+  client_id: clientId,
+  redirect_uri: clientRoot + 'signin-callback',
+  response_type: responseType,
+  scope: scope,
+  post_logout_redirect_uri: clientRoot + 'signout-callback',
   filterProtocolClaims: true,
   loadUserInfo: true
 })

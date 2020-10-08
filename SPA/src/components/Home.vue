@@ -232,11 +232,10 @@
 
 <script>
 import axios from 'axios'
-import { environment } from '../config/config'
+import { stsAuthority } from '../config/config'
 import { useToast } from 'vue-toastification'
-const urlApiContent = environment.stsAuthority + 'api/content/'
-
-const urlApiGraphql = environment.stsAuthority + 'api/graphql'
+const urlApiContent = stsAuthority + 'api/content/'
+const urlApiGraphql = stsAuthority + 'api/graphql'
 
 export default {
   name: 'Home',
